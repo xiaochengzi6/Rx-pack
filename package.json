@@ -1,0 +1,50 @@
+{
+  "name": "rx-pack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "browserslist": "^4.20.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "html-webpack-plugin": "^5.5.0",
+    "html-webpack-tags-plugin": "^3.0.2",
+    "mini-css-extract-plugin": "^2.6.0",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "scripts": {
+    "server": "cross-env NODE_ENV=development webpack server --open",
+    "dev": "cross-env NODE_ENV=development webpack",
+    "pro": "cross-env NODE_ENV=production webpack",
+    "viewChunks": "cross-env NODE_ENV=production webpack server --config ./analyz.js",
+    "clean": "rimraf dist/"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router": "^6.2.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
