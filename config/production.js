@@ -7,7 +7,7 @@ const path = require("path");
 module.exports = {
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "../pro"),
+    path: path.resolve(__dirname, "../production"),
     clean: true,
   },
   module: {
@@ -18,7 +18,9 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/i,
-        include: path.resolve(__dirname, '../src'),
+        // 你如果很确定可以使用
+        // include: path.resolve(__dirname, '../src'),
+        exclude: /(node_modules|bower_components)/,
         use: [ "babel-loader"]
       },
       {
@@ -47,44 +49,10 @@ module.exports = {
     new MiniCssExtractorPlugin(),
     // html 文件
     new HtmlWebpackPlugin({
-      template: "./public/pro-index.html",
+      template: './src/index.html',
       inject: "body",
     }),
-    // new HtmlWebpackTagsPlugin({
-    //   tags: [
-    //    {
-    //     path:"https://unpkg.com/react@16/umd/react.production.min.js",
-    //     scripts: [
-    //       {
-    //         path: 'asset/path',
-    //         external: {
-    //           packageName: 'react',
-    //           variableName: 'React'
-    //         },
-    //         attributes: {
-    //           type: 'text/javascript'
-    //         }
-    //       }
-    //     ]
-    //    },
-    //    {
-    //     path:"https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
-    //     scripts: [
-    //       {
-    //         path: 'asset/path',
-    //         external: {
-    //           packageName: 'react-dom',
-    //           variableName: 'ReactDOM'
-    //         },
-    //         attributes: {
-    //           type: 'text/javascript'
-    //         }
-    //       }
-    //     ]
-    //    }
-    //   ],
-
-    // })
+    
   ],
   optimization: {
     minimizer: [

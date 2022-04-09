@@ -9,12 +9,18 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.4",
     "browserslist": "^4.20.2",
+    "chalk": "^4.0.0",
+    "commander": "^9.1.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
+    "decompress": "^4.2.1",
     "html-webpack-plugin": "^5.5.0",
     "html-webpack-tags-plugin": "^3.0.2",
+    "inquirer": "^8.2.2",
     "mini-css-extract-plugin": "^2.6.0",
+    "request": "^2.88.2",
+    "require-promise": "^1.0.1",
     "rimraf": "^3.0.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.70.0",
@@ -27,7 +33,7 @@
     "server": "cross-env NODE_ENV=development webpack server --open",
     "dev": "cross-env NODE_ENV=development webpack",
     "pro": "cross-env NODE_ENV=production webpack",
-    "viewChunks": "cross-env NODE_ENV=production webpack server --config ./analyz.js",
+    "viewChunks": "cross-env NODE_ENV=production webpack server --config ./lib/analyz.js",
     "clean": "rimraf dist/"
   },
   "dependencies": {
@@ -46,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "bin": {
+    "rx": "./bin/rx.js"
+  },
+  "rx-entry": "aaa"
 }

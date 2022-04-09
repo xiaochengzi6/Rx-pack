@@ -19,7 +19,10 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/i,
-        include: path.resolve(__dirname, '../src'),
+        // include: path.resolve(__dirname, '../src'),
+         // 你如果很确定可以使用
+        // include: path.resolve(__dirname, '../src'),
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
         }
