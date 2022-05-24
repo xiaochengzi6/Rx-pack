@@ -16,7 +16,7 @@ rx init "projectName"
 
 ### 开始打包文件 (development)
 ~~~js
-npm run dev
+yarn run dev
 ~~~
 打包后的文件存放在 `./dist`
 

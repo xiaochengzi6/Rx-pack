@@ -1,13 +1,14 @@
 const MiniCssExtractorPlugin = require("mini-css-extract-plugin");
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// var HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 
 module.exports = {
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../production"),
+    chunkFilename: "static/js/[name].[contenthash:8].chunk.js",
     clean: true,
   },
   module: {
@@ -17,11 +18,17 @@ module.exports = {
         use: [MiniCssExtractorPlugin.loader, "css-loader"],
       },
       {
+        test: /\.(js)$/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+      {
         test: /\.(js|jsx)$/i,
         // 你如果很确定可以使用
         // include: path.resolve(__dirname, '../src'),
         exclude: /(node_modules|bower_components)/,
-        use: [ "babel-loader"]
+        use: ["babel-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -46,16 +53,41 @@ module.exports = {
   },
   plugins: [
     // css 文件
-    new MiniCssExtractorPlugin(),
+    new MiniCssExtractorPlugin({
+      filename: "static/css/[name].[contenthash:8].css",
+      chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+    }),
     // html 文件
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: "./public/index-production.html",
       inject: "body",
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
     }),
-    
   ],
   optimization: {
+    minimizer: true,
+    // 开启摇树优化
+    usedExports: true,
     minimizer: [
+      new TerserPlugin({
+        parallel: 5,
+        terserOptions: {
+          format: {
+            comments: false,
+          }
+        }
+      }),
       new CssMinimizerWebpackPlugin({
         // 多进程
         parallel: true,
@@ -74,6 +106,8 @@ module.exports = {
   },
   externals: {
     react: "React",
-    reactdom: "ReactDOM",
+    "react-dom": "ReactDOM",
+    "immutable": "Immutable",
+    "html2canvas": "html2canvas"
   },
 };

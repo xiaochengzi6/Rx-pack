@@ -1,7 +1,11 @@
 {
-  "presets": [
-      ["@babel/preset-env"],
-      "@babel/preset-react"   // 处理 react 
-  ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  // 当设置为 automatic 时，将自动导入（import）JSX 转换而来的函数。
+  "presets":["@babel/preset-env",["@babel/preset-react", {"runtime":"automatic"}]],
+  "plugins": ["@babel/plugin-transform-runtime",[
+    "import",{
+      "libraryName": "antd",
+      "style": "css",   // or 'true', 这回加载 less
+      "libraryDirectory": "es"
+    }
+  ]]
 }
