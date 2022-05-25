@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "../dist"),
     clean: true,
   },
+  // 是否开启 你自己来规定
   // devtool: 'source-map',
   module: {
     rules: [
@@ -16,7 +17,7 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
-      // 这里需要在面对 mjs js 能够清楚的判断而不会导致抛错
+      // 这里需要在面对 文件名后缀是否是 mjs 或者 js 能够清楚的判断而不会导致抛错
       {
         test: /\.(js)$/,
         resolve: {

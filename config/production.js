@@ -59,7 +59,9 @@ module.exports = {
     }),
     // html 文件
     new HtmlWebpackPlugin({
+      /*这里默认使用 index-Production 作为 html 模板*/
       template: "./public/index-production.html",
+      // 插入到 html 的底部
       inject: "body",
       minify: {
         removeComments: true,
@@ -104,10 +106,9 @@ module.exports = {
       "...",
     ],
   },
+  /*用于排除非常大的包文件*/
   externals: {
     react: "React",
     "react-dom": "ReactDOM",
-    "immutable": "Immutable",
-    "html2canvas": "html2canvas"
   },
 };

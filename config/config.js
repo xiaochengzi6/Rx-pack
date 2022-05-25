@@ -1,10 +1,13 @@
 const path = require('path');
+const utils = require("../lib/utils");
 const currentPath = process.cwd();
 const pkg = path.join(currentPath,"/package.json");
 const pkg_entry = require(pkg)["rx-entry"]
 const resolvePath = path.join(__dirname, '../') /*指定相对目录*/
 const rx_entry = path.join(resolvePath,`${pkg_entry}` ,'index.js')
-
+if(!rx_entry){
+  utils.exit('使用模板的 index.js 文件不存');
+}
 module.exports = {
   entry: rx_entry,
  
@@ -23,7 +26,7 @@ module.exports = {
     extensions: ['.js', 'jsx','.json'],
     modules: [path.resolve(resolvePath, 'node_modules')],
     alias: {
-      Utils: path.resolve(resolvePath, './src/utils')
+      /*这里要配合着项目中文件夹的使用频率来设置*/
     }
   },
 }

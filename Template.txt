@@ -1,0 +1,10 @@
+├── Application  # 项目页面
+├── components   # 公共组件
+├── api          # 请求
+├── store        # 状态管理
+├── utils        # 工具函数、常量
+├── types
+├── assets       # 静态资源
+├── router       # 路由       
+├── index.js
+└── App.js
