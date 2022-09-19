@@ -60,6 +60,7 @@ npm run createFile
 ## 问题
 1、如果你不能使用 `rx` 你可以在命令行键入 `yarn link` 
 > 前提这需要你使用 yarn 并且它在你的全局环境下
+
 2、遇到下载模板时下载不成功是因为网速太慢或者国内不允许访问，大家也已自行拷贝去使用合适的方法去拷贝[模板文件](https://github.com/xiaochengzi6/Rx-template)。
 错误类型：
 ~~~shell
@@ -73,3 +74,4 @@ Error: read ECONNRESET
 解决方法 使用 [git](https://gitee.com/xiaochengzi6/rx-template) 手动下载或者去模板文件处下载
 
 3、你不使用配置的模板文件也能进行工作，你只需要在 `./src`文件夹放入 `index.js` 文件也能完成打包工作。(默认是存在的)
+> 需要注意的是这里的模板是模仿功能并没有实际的用途，有关于这个脚手架的开发及问题也欢迎大家联系我 
