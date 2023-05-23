@@ -4,7 +4,9 @@ const currentPath = process.cwd();
 const pkg = path.join(currentPath,"/package.json");
 const pkg_entry = require(pkg)["rx-entry"]
 const resolvePath = path.join(__dirname, '../') /*指定相对目录*/
-const rx_entry = path.join(resolvePath,`${pkg_entry}` ,'index.js')
+
+// 指定入口文件
+const rx_entry = path.join(resolvePath, 'src' ,'index.js')
 if(!rx_entry){
   utils.exit('使用模板的 index.js 文件不存');
 }
