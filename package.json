@@ -4,54 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.21.5",
-    "@babel/preset-react": "^7.16.7",
-    "antd": "^4.16.13",
-    "babel-loader": "^8.2.4",
-    "babel-plugin-import": "^1.13.5",
-    "browserslist": "^4.20.2",
-    "chalk": "^4.0.0",
-    "commander": "^9.1.0",
-    "commitizen": "^4.2.4",
-    "cross-env": "^7.0.3",
-    "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^3.4.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "decompress": "^4.2.1",
-    "eslint": "^8.0.1",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.32.2",
-    "html-webpack-plugin": "^5.5.0",
-    "html-webpack-tags-plugin": "^3.0.2",
-    "inquirer": "^8.2.2",
-    "mini-css-extract-plugin": "^2.6.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.5",
-    "react-router": "^5.2.1",
-    "react-router-config": "^5.1.1",
-    "react-router-dom": "^5.3.0",
-    "redux": "^4.1.1",
-    "request": "^2.88.2",
-    "require-promise": "^1.0.1",
-    "rimraf": "^3.0.2",
-    "rx-file": "^2.1.4",
-    "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "^5.3.1",
-    "unique-filename": "^1.1.1",
-    "web-vitals": "^1.0.1",
-    "webpack": "^5.70.0",
-    "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.0",
-    "webpack-merge": "^5.8.0"
-  },
   "scripts": {
     "server": "cross-env NODE_ENV=development webpack server --open",
     "dev": "cross-env NODE_ENV=development webpack",
@@ -59,7 +11,25 @@
     "viewChunks": "cross-env NODE_ENV=production webpack server --config ./lib/analyz.js",
     "commit": "git-cz",
     "clean": "rimraf dist/",
-    "createFile": "node ./lib/templateFile.js"
+    "createFile": "node ./lib/templateFile.js",
+    "prepare": "husky install",
+    "lint": "eslint src",
+    "lint:fix": "eslint src/* --fix",
+    "format": "prettier --write --cache ."
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --cache --fix",
+      "yarn run format"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "bin": {
+    "rx": "./bin/rx.js"
   },
   "browserslist": {
     "production": [
@@ -73,13 +43,62 @@
       "last 1 safari version"
     ]
   },
-  "bin": {
-    "rx": "./bin/rx.js"
+  "rx-entry": "src",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "react-router": "^5.2.1",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1"
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "rx-entry": "src"
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.16.7",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "antd": "^4.16.13",
+    "babel-loader": "^8.2.4",
+    "babel-plugin-import": "^1.13.5",
+    "browserslist": "^4.20.2",
+    "chalk": "^4.0.0",
+    "commander": "^9.1.0",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "decompress": "^4.2.1",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "html-webpack-plugin": "^5.5.0",
+    "html-webpack-tags-plugin": "^3.0.2",
+    "husky": "^8.0.3",
+    "inquirer": "^8.2.2",
+    "lint-staged": "^13.2.2",
+    "mini-css-extract-plugin": "^2.6.0",
+    "prettier": "^2.8.8",
+    "request": "^2.88.2",
+    "require-promise": "^1.0.1",
+    "rimraf": "^3.0.2",
+    "rx-file": "^2.1.4",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "unique-filename": "^1.1.1",
+    "web-vitals": "^1.0.1",
+    "webpack": "^5.70.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.0",
+    "webpack-merge": "^5.8.0"
+  }
 }

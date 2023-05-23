@@ -1,0 +1,10 @@
+dist
+node_modules
+coverage
+!.vitepress/
+!.changeset/
+pnpm-lock.yaml
+playgrounds/
+bin
+config
+lib
