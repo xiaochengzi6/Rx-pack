@@ -4,7 +4,7 @@
 yarn-error.log
 
 # 忽略 deveproductor 模式的文件
-# /dist 
+/dist 
 
 # 用于记录本地的开发时遇到的问题或者待解决的方案
 本地文件.md  
@@ -17,7 +17,7 @@ yarn-error.log
 # /public
 
 # 忽略 productor 模式后的打包文件 
-# /production 
+/production 
 
 
 # 用于测试的文件
