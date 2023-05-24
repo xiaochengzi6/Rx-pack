@@ -1,8 +1,32 @@
-## 使用的技术栈
-webpack5 + React + babel + React-Router + Redux 
+## 环境
+主要打包环境：`webpack5 + babel` 
+
+选型：`React 生态`
+> 主要支持 react 生态环境、暂时不考虑支持其他
+
+
+环境：`Browser`
+
+ES6版本：`ES6+`
+
+node版本：`Node 14+`
+> 过高版本有可能存在问题 如 node_18 尽量使用 14 or 16 
+
+包管理工具：`yarn`
+> 绝对不能用 pnpm 不然运行不起来
+
+UI组件库：`Antd`
+> 默认为 antd 可以去修改
+
 
 ## 功能
-
+1. 自动化检测提交代码
+2. 下载模板文件（下载作者提供的）
+3. 分析 build 文件
+4. 自定义创建模板文件（根据根目录`Template.txt`文件）
+5. 根据不同环境打包、校验代码
+6. 支持 TS（默认 react_17 版本）
+7. 支持 react_17 和 react_18 （切换分支使用）
 ### 初次运行
 > yarn install
 
@@ -75,3 +99,12 @@ Error: read ECONNRESET
 
 3、你不使用配置的模板文件也能进行工作，你只需要在 `./src`文件夹放入 `index.js` 文件也能完成打包工作。(默认是存在的)
 > 需要注意的是这里的模板是模仿功能并没有实际的用途，有关于这个脚手架的开发及问题也欢迎大家联系我 
+
+
+## 后续
+1. 设计一个 cli 能够自动化的选择开发环境使用不同的打包工具
+     比如选择 `node` 环境就使用 `Rollup` 打包
+     选择 `Browser` 环境就使用 `webpack` 打包
+2. 支持 monorepo 环境
+3. 能够在 1 的基础上无缝切换 vite 
+4. 能否设计成类似于 `create-react-app` 那样
