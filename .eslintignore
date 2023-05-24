@@ -8,3 +8,4 @@ playgrounds/
 bin
 config
 lib
+.eslintrc.js
