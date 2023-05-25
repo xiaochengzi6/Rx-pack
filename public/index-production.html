@@ -2,23 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
 
     <title>React App</title>
+    <!--
+      production 模式采用了 cdn 导入的方式，避免了 react 和 react-dom 打包的问题
+      如果更新 react 版本、cdn 链接失效都需要重新更改
+      cdn: https://cdn.baomitu.com
+    -->
     <!-- react -->
     <script
       crossorigin="anonymous"
-      integrity="sha512-qlzIeUtTg7eBpmEaS12NZgxz52YYZVF5myj89mjJEesBd/oE9UPsYOX2QAXzvOAZYEvQohKdcY8zKE02ifXDmA=="
-      src="https://lib.baomitu.com/react/17.0.2/umd/react.production.min.js"
+      integrity="sha512-8Q6Y9XnTbOE+JNvjBQwJ2H8S+UV4uA6hiRykhdtIyDYZ2TprdNmWOUaKdGzOhyr4dCyk287OejbPvwl7lrfqrQ=="
+      src="https://lib.baomitu.com/react/18.2.0/umd/react.production.min.js"
     ></script>
     <!-- react-dom -->
     <script
       crossorigin="anonymous"
-      integrity="sha512-9jGNr5Piwe8nzLLYTk8QrEMPfjGU0px80GYzKZUxi7lmCfrBjtyCc1V5kkS5vxVwwIB7Qpzc7UxLiQxfAN30dw=="
-      src="https://lib.baomitu.com/react-dom/17.0.2/umd/react-dom.production.min.js"
+      integrity="sha512-MOCpqoRoisCTwJ8vQQiciZv0qcpROCidek3GTFS6KTk2+y7munJIlKCVkFCYY+p3ErYFXCjmFjnfTTRSC1OHWQ=="
+      src="https://lib.baomitu.com/react-dom/18.2.0/umd/react-dom.production.min.js"
     ></script>
   </head>
 
