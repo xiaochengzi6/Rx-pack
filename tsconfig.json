@@ -1,0 +1,25 @@
+// 配置使用 create-react-app
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    // 关于配置内容参考：https://juejin.cn/post/7080792643118039076
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    // 编译时不生成任何文件（只进行类型检查）
+    // 使用整个会导致 不能输出文件
+    // "noEmit": true
+    // 解决方法：https://github.com/TypeStrong/ts-loader/issues/767
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
