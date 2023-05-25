@@ -18,19 +18,6 @@ module.exports = {
         use: [MiniCssExtractorPlugin.loader, "css-loader"],
       },
       {
-        test: /\.(js)$/,
-        resolve: {
-          fullySpecified: false,
-        },
-      },
-      {
-        test: /\.(js|jsx)$/i,
-        // 你如果很确定可以使用
-        // include: path.resolve(__dirname, '../src'),
-        exclude: /(node_modules|bower_components)/,
-        use: ["babel-loader"],
-      },
-      {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset",
         parser: {
@@ -106,7 +93,10 @@ module.exports = {
       "...",
     ],
   },
-  /*用于排除非常大的包文件*/
+  /**
+   * 用于排除非常大的包文件 
+   * 排除的文件需要通过 cdn 来导入
+   */
   externals: {
     react: "React",
     "react-dom": "ReactDOM",
